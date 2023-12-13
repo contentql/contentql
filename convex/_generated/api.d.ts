@@ -14,6 +14,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as hero from "../hero.js";
 import type * as theme from "../theme.js";
 
 /**
@@ -25,6 +26,7 @@ import type * as theme from "../theme.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  hero: typeof hero;
   theme: typeof theme;
 }>;
 export declare const api: FilterApi<

@@ -11,7 +11,7 @@ export const get = query({
 });
 
 export const update = mutation({
-  args: { id: v.id('tasks'), theme: v.string() },
+  args: { id: v.id('theme'), theme: v.string() },
   handler: async (ctx, args) => {
     return await ctx.db.patch(args.id, { theme: args.theme });
   },
