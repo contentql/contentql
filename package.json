@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@authorizerdev/authorizer-react": "^1.1.19",
     "@clerk/nextjs": "^4.27.2",
     "clsx": "^2.0.0",
     "convex": "^1.6.2",
