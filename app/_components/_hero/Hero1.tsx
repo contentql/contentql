@@ -1,12 +1,16 @@
+"use client";
+
+import { api } from "@/convex/_generated/api";
+import { useQuery } from "convex/react";
 import React from "react";
 
 const Hero1 = () => {
-  const products = [
+  const hero1DemoData = [
     {
       _id: "1",
       label: "Electronics",
       title: "Stylish Watch",
-      caption: "The latest and greatest smartphone.",
+      caption: "Enhance your style with this elegant watch.",
       coverUrl: "/assets/images/products/product_1.png",
       rating: 1,
     },
@@ -14,7 +18,7 @@ const Hero1 = () => {
       _id: "2",
       label: "Fashion",
       title: "Smartphone X",
-      caption: "Enhance your style with this elegant watch.",
+      caption: "The latest and greatest smartphone.",
       coverUrl: "/assets/images/products/product_2.png",
       rating: 2,
     },
@@ -87,26 +91,28 @@ const Hero1 = () => {
     },
   ];
 
+  const hero1Data = useQuery(api.hero1.get) || hero1DemoData;
+
   return (
     <div className="carousel w-full relative">
-      {products.map((product, index) => {
+      {hero1Data.map((product, index) => {
         return (
           <div
             key={product._id}
             id={`slide${index + 1}`}
             className="carousel-item w-full h-screen flex justify-center items-center relative"
           >
-            <div className="card lg:card-side bg-gray-100 shadow-xl w-[90vw] h-96">
+            <div className="card lg:card-side bg-base-200 shadow-xl w-[90vw] h-96">
               <div className="flex justify-between absolute top-1/2 -left-5 -right-5 transform -translate-y-1/2">
                 <a
-                  href={`#slide${index === 0 ? products.length : index}`}
+                  href={`#slide${index === 0 ? hero1DemoData.length : index}`}
                   className="btn btn-circle"
                 >
                   ❮
                 </a>
                 <a
                   href={`#slide${
-                    index === products.length - 1 ? 1 : index + 2
+                    index === hero1DemoData.length - 1 ? 1 : index + 2
                   }`}
                   className="btn btn-circle"
                 >
@@ -117,10 +123,10 @@ const Hero1 = () => {
                 <img
                   src={product.coverUrl}
                   alt={product.title}
-                  className="w-96 h-96 object-cover rounded-t"
+                  className="w-96 h-96 object-cover"
                 />
               </figure>
-              <div className="card-body bg-gray-200">
+              <div className="card-body bg-base-300 rounded-r-xl">
                 <div className="badge badge-info gap-2">{product.label}</div>
                 <h2 className="card-title text-4xl font-bold mb-2">
                   {product.title}
@@ -135,7 +141,8 @@ const Hero1 = () => {
                       className={`mask mask-star-2 bg-orange-400 ${
                         i < product.rating ? "checked" : ""
                       }`}
-                      checked={i === product.rating - 1}
+                      defaultChecked={i === product.rating - 1}
+                      readOnly
                     />
                   ))}
                 </div>
