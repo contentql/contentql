@@ -7,16 +7,73 @@ const Hero1 = () => {
       label: "Electronics",
       title: "Smartphone X",
       caption: "The latest and greatest smartphone.",
-      coverUrl:
-        "https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg",
+      coverUrl: "/assets/images/products/product_1.png",
     },
     {
       _id: "2",
       label: "Fashion",
       title: "Stylish Watch",
       caption: "Enhance your style with this elegant watch.",
-      coverUrl:
-        "https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg",
+      coverUrl: "/assets/images/products/product_2.png",
+    },
+    {
+      _id: "3",
+      label: "Home Decor",
+      title: "Modern Wall Art",
+      caption: "Transform your living space with this contemporary wall art.",
+      coverUrl: "/assets/images/products/product_3.png",
+    },
+    {
+      _id: "4",
+      label: "Sports",
+      title: "Running Shoes",
+      caption:
+        "Achieve your fitness goals with these high-performance running shoes.",
+      coverUrl: "/assets/images/products/product_4.png",
+    },
+    {
+      _id: "5",
+      label: "Beauty",
+      title: "Luxury Perfume",
+      caption: "Indulge in the captivating fragrance of this luxury perfume.",
+      coverUrl: "/assets/images/products/product_5.png",
+    },
+    {
+      _id: "6",
+      label: "Books",
+      title: "Bestseller Novel",
+      caption:
+        "Immerse yourself in a gripping story with this bestselling novel.",
+      coverUrl: "/assets/images/products/product_6.png",
+    },
+    {
+      _id: "7",
+      label: "Toys",
+      title: "Interactive Robot",
+      caption: "A fun and educational toy that sparks creativity in kids.",
+      coverUrl: "/assets/images/products/product_7.png",
+    },
+    {
+      _id: "8",
+      label: "Kitchenware",
+      title: "Professional Chef's Knife",
+      caption: "Upgrade your kitchen with this high-quality chef's knife.",
+      coverUrl: "/assets/images/products/product_8.png",
+    },
+    {
+      _id: "9",
+      label: "Tech Gadgets",
+      title: "Wireless Earbuds",
+      caption:
+        "Experience music like never before with these wireless earbuds.",
+      coverUrl: "/assets/images/products/product_9.png",
+    },
+    {
+      _id: "10",
+      label: "Outdoor Gear",
+      title: "Camping Tent",
+      caption: "Embark on outdoor adventures with this durable camping tent.",
+      coverUrl: "/assets/images/products/product_10.png",
     },
   ];
 
@@ -31,10 +88,10 @@ const Hero1 = () => {
               className="carousel-item w-full h-screen flex justify-center items-center relative"
             >
               <div className="card lg:card-side bg-base-100 shadow-xl mx-4 rounded">
-                <div className="flex justify-between absolute top-1/2 left-5 right-5 transform -translate-y-1/2">
+                <div className="flex justify-between absolute top-1/2 -left-5 -right-5 transform -translate-y-1/2">
                   <a
                     href={`#slide${index === 0 ? products.length : index}`}
-                    className="btn btn-circle text-white"
+                    className="btn btn-circle"
                   >
                     ❮
                   </a>
@@ -42,7 +99,7 @@ const Hero1 = () => {
                     href={`#slide${
                       index === products.length - 1 ? 1 : index + 2
                     }`}
-                    className="btn btn-circle text-white"
+                    className="btn btn-circle"
                   >
                     ❯
                   </a>
