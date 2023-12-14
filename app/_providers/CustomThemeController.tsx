@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { Inter } from 'next/font/google';
-import { useQuery } from 'convex/react';
-import { api } from '@/convex/_generated/api';
+import { Inter } from "next/font/google";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function CustomThemeController({
   children,
@@ -12,10 +12,9 @@ export default function CustomThemeController({
   children: React.ReactNode;
 }) {
   const theme = useQuery(api.theme.get);
-  console.log(theme);
 
   return (
-    <html lang='en' data-theme={theme}>
+    <html lang="en" data-theme={theme}>
       <body className={inter.className}>{children}</body>
     </html>
   );
