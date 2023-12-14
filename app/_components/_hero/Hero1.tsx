@@ -1,59 +1,74 @@
-import { Fragment } from 'react';
+import React from "react";
 
 const Hero1 = () => {
-  const productsCarousel = [{
-    id: 1,
-    coverUrl: '/assets/images/hero1.jpg',
-    label: 'It is a lable 1.',
-    title: 'It is a title 1.',
-    caption: 'It is a caption 1.'
-  },
-{
-    id: 2,
-    coverUrl: '/assets/images/hero2.jpg',
-    label: 'It is a lable 2.',
-    title: 'It is a title 2.',
-    caption: 'It is a caption 2.'
-  },
-{
-    id: 3,
-    coverUrl: '/assets/images/hero1.jpg',
-    label: 'It is a lable 3.',
-    title: 'It is a title 3.',
-    caption: 'It is a caption 3.'
-    }]
-  
+  const products = [
+    {
+      _id: "1",
+      label: "Electronics",
+      title: "Smartphone X",
+      caption: "The latest and greatest smartphone.",
+      coverUrl:
+        "https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg",
+    },
+    {
+      _id: "2",
+      label: "Fashion",
+      title: "Stylish Watch",
+      caption: "Enhance your style with this elegant watch.",
+      coverUrl:
+        "https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg",
+    },
+  ];
+
   return (
-    <div className="carousel w-full">
-  <div id="slide1" className="carousel-item relative w-full">
-    <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide4" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
+    <div>
+      <div className="carousel w-full relative">
+        {products.map((product, index) => {
+          return (
+            <div
+              key={product._id}
+              id={`slide${index + 1}`}
+              className="carousel-item w-full h-screen flex justify-center items-center relative"
+            >
+              <div className="card lg:card-side bg-base-100 shadow-xl mx-4 rounded">
+                <div className="flex justify-between absolute top-1/2 left-5 right-5 transform -translate-y-1/2">
+                  <a
+                    href={`#slide${index === 0 ? products.length : index}`}
+                    className="btn btn-circle text-white"
+                  >
+                    ❮
+                  </a>
+                  <a
+                    href={`#slide${
+                      index === products.length - 1 ? 1 : index + 2
+                    }`}
+                    className="btn btn-circle text-white"
+                  >
+                    ❯
+                  </a>
+                </div>
+                <figure>
+                  <img
+                    src={product.coverUrl}
+                    alt={product.title}
+                    className="w-full h-48 object-cover rounded-t"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title text-xl font-bold mb-2">
+                    {product.title}
+                  </h2>
+                  <p className="text-gray-600">{product.caption}</p>
+                  <div className="card-actions mt-4">
+                    <button className="btn btn-primary">Learn More</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div> 
-  <div id="slide2" className="carousel-item relative w-full">
-    <img src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide1" className="btn btn-circle">❮</a> 
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide3" className="carousel-item relative w-full">
-    <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide2" className="btn btn-circle">❮</a> 
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide4" className="carousel-item relative w-full">
-    <img src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide3" className="btn btn-circle">❮</a> 
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
   );
 };
 
