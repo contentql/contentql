@@ -5,7 +5,7 @@ import Hero2 from "@/app/_components/_hero/Hero2";
 const HomePage = () => {
   return (
     <div className="">
-      <Hero2 />
+      <Hero />
     </div>
   );
 };
